@@ -90,24 +90,6 @@ export default function Page() {
 
   const soupItems = [{ name: '玉米濃湯', price: '$50' }];
 
-  const features = [
-    {
-      title: '可愛溫馨的小店感',
-      desc: '以奶油米白、焦糖棕與柔和橘粉打造舒服的餐廳氛圍，讓網站更像真正的巷弄小店。',
-      icon: '🏡',
-    },
-    {
-      title: '菜單整理更清楚',
-      desc: '把義大利麵、筆管麵、燉飯、點心、飲料分類呈現，客人一進網站就能快速找到想吃的。',
-      icon: '📖',
-    },
-    {
-      title: '實用資訊一次到位',
-      desc: '營業時間、地址、電話、地圖都整理在首頁，對店家實際使用與客人查詢都很方便。',
-      icon: '☎️',
-    },
-  ];
-
   type MenuItem = {
     name: string;
     price: string;
@@ -252,7 +234,7 @@ export default function Page() {
       </section>
 
       {/* Intro */}
-      <section className="mx-auto max-w-5xl px-6 py-14 text-center md:px-10">
+      <section className="mx-auto max-w-5xl px-6 py-20 text-center md:px-10">
         <p className="text-sm font-bold tracking-[0.18em] text-[#ca7750]">WELCOME</p>
         <h2 className="mt-3 text-3xl font-extrabold text-[#5a4334] md:text-4xl">
           巷弄裡的溫馨小店 🍝
@@ -261,27 +243,6 @@ export default function Page() {
           亞米小廚是一間位於信義區的小餐館，提供平價又有份量的義大利麵、燉飯與小點。
           不論是下班聚餐、朋友聊天，或只是想吃一份舒服的義大利麵，這裡都是很放鬆的選擇。
         </p>
-      </section>
-
-      {/* Features */}
-      <section className="mx-auto max-w-6xl px-6 py-4 md:px-10">
-        <div className="mb-8">
-          <p className="text-sm font-bold tracking-[0.18em] text-[#ca7750]">WHY THIS VERSION</p>
-          <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">這版網站的設計方向</h2>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {features.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-[28px] border border-[#ecdccf] bg-white p-6 shadow-sm"
-            >
-              <div className="text-3xl">{item.icon}</div>
-              <h3 className="mt-4 text-xl font-bold text-[#5a4334]">{item.title}</h3>
-              <p className="mt-3 leading-7 text-[#7a6454]">{item.desc}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* Menu intro */}
