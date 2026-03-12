@@ -1,196 +1,345 @@
 export default function Page() {
-  const menuItems = [
+  const businessHours = [
+    { day: '星期一', time: '11:30–15:00 / 16:30–22:00', open: true },
+    { day: '星期二', time: '11:30–15:00 / 16:30–22:00', open: true },
+    { day: '星期三', time: '11:30–15:00 / 16:30–22:00', open: true },
+    { day: '星期四', time: '11:30–15:00 / 16:30–22:00', open: true },
+    { day: '星期五', time: '休息', open: false },
+    { day: '星期六', time: '休息', open: false },
+    { day: '星期日', time: '11:30–15:00 / 16:30–22:00', open: true },
+  ];
+
+  const spaghettiItems = [
+    { name: '奶油（培根／燻雞／香腸）義大利麵', price: '$160' },
+    { name: '奶油野菇燻雞義大利麵', price: '$200' },
+    { name: '奶油松露野菇義大利麵', price: '$200' },
+    { name: '奶油煙燻鮭魚義大利麵', price: '$200' },
+    { name: '奶油蛤蜊義大利麵', price: '$220' },
+
+    { name: '青醬（培根／燻雞／香腸）義大利麵', price: '$160' },
+    { name: '青醬牛丸義大利麵', price: '$200' },
+    { name: '青醬野菇燻雞義大利麵', price: '$200' },
+    { name: '青醬煙燻鮭魚義大利麵', price: '$200' },
+    { name: '青醬蛤蜊義大利麵', price: '$220' },
+
+    { name: '經典肉醬義大利麵', price: '$140' },
+    { name: '起司肉醬義大利麵', price: '$160' },
+    { name: '茄汁（培根／燻雞／香腸）義大利麵', price: '$160' },
+    { name: '茄汁野菇義大利麵', price: '$160' },
+    { name: '茄汁煙燻鮭魚義大利麵', price: '$200' },
+    { name: '茄汁蛤蜊義大利麵', price: '$220' },
+
+    { name: '蒜辣義大利麵', price: '$140' },
+    { name: '蒜辣（培根／燻雞／香腸）義大利麵', price: '$160' },
+    { name: '蒜辣蛤蜊義大利麵', price: '$220' },
+    { name: '蒜辣麵佐脆皮炸雞腿', price: '$240' },
+
+    { name: '泰式酸辣（培根／香腸）義大利麵', price: '$160' },
+    { name: '白酒蛤蜊義大利麵', price: '$200' },
+    { name: '橄欖油時蔬義大利麵（純素）', price: '$160' },
+    { name: '塔香野菇義大利麵（純素）', price: '$160' },
+    { name: '番茄野菇義大利麵（蛋奶素）', price: '$160' },
+  ];
+
+  const penneItems = [
+    { name: '經典肉醬筆管麵', price: '$150' },
+    { name: '起司肉醬筆管麵', price: '$170' },
+    { name: '奶油（培根／燻雞／香腸）筆管麵', price: '$170' },
+    { name: '青醬（培根／燻雞／香腸）筆管麵', price: '$170' },
+    { name: '茄汁（培根／燻雞／香腸）筆管麵', price: '$170' },
+  ];
+
+  const riceItems = [
+    { name: '奶油（培根／燻雞／香腸）燉飯', price: '$160' },
+    { name: '青醬（培根／燻雞／香腸）燉飯', price: '$160' },
+    { name: '茄汁（培根／燻雞／香腸）燉飯', price: '$160' },
+    { name: '蒜香（培根／燻雞／香腸）燉飯', price: '$160' },
+    { name: '奶油野菇燉飯', price: '$160' },
+    { name: '青醬野菇燉飯', price: '$160' },
+    { name: '茄汁野菇燉飯', price: '$160' },
+    { name: '奶油松露野菇燉飯', price: '$200' },
+    { name: '起司辣雞燉飯', price: '$200' },
+    { name: '燉飯佐脆皮炸雞腿', price: '$240' },
+  ];
+
+  const snackItems = [
+    { name: '脆薯', price: '$50' },
+    { name: '洋蔥圈', price: '$50' },
+    { name: '辣味薯球', price: '$50' },
+    { name: '地瓜條', price: '$50' },
+    { name: '雞塊', price: '$50' },
+    { name: '卡啦腿排', price: '$50' },
+    { name: '檸檬雞柳條', price: '$50' },
+    { name: '雞米花', price: '$50' },
+    { name: '辣味雞米花', price: '$50' },
+    { name: '雙色QQ球', price: '$50' },
+    { name: '魷米花', price: '$60' },
+  ];
+
+  const drinkItems = [
+    { name: '紅茶（冰／熱）', price: '$35' },
+    { name: '綠茶（冰／熱）', price: '$35' },
+    { name: '可樂', price: '$35' },
+    { name: '雪碧', price: '$35' },
+    { name: '檸檬紅茶', price: '$35' },
+    { name: '冰咖啡', price: '$35' },
+    { name: '鮮奶茶', price: '$50' },
+    { name: '鮮奶綠', price: '$50' },
+    { name: '鴛鴦奶茶', price: '$50' },
+  ];
+
+  const soupItems = [{ name: '玉米濃湯', price: '$50' }];
+
+  const features = [
     {
-      name: '白酒蛤蜊義大利麵',
-      price: '$180',
-      desc: '清爽蒜香與蛤蜊鮮味，是很多人會點的經典口味。',
+      title: '溫馨小店感',
+      desc: '用柔和的配色與圓角卡片，讓網站看起來像巷弄裡的可愛餐館。',
+      icon: '🏡',
     },
     {
-      name: '奶油培根義大利麵',
-      price: '$170',
-      desc: '口味濃郁、接受度高，適合第一次來的客人。',
+      title: '菜單一眼看懂',
+      desc: '把義大利麵、筆管麵、燉飯、點心、飲料分開呈現，客人看起來更舒服。',
+      icon: '📖',
     },
     {
-      name: '青醬雞肉義大利麵',
-      price: '$190',
-      desc: '羅勒香氣明顯，搭配雞肉吃起來很有層次。',
-    },
-    {
-      name: '番茄辣炒豬肉飯',
-      price: '$145',
-      desc: '帶點微辣與番茄香，走開胃下飯路線。',
-    },
-    {
-      name: '椰汁雞肉飯',
-      price: '$150',
-      desc: '醬汁溫和順口，適合喜歡南洋風味的客人。',
-    },
-    {
-      name: '炸雞翅拼盤',
-      price: '$135',
-      desc: '很適合和主餐一起搭配，增加整體飽足感。',
+      title: '資訊完整好用',
+      desc: '地址、電話、營業時間直接放在前面，對店家實際使用很有幫助。',
+      icon: '☎️',
     },
   ];
 
-  const highlights = [
-    {
-      title: '平價又有份量',
-      desc: '餐點價格親切，午餐、晚餐都很適合，學生和上班族都容易接受。',
-    },
-    {
-      title: '義大利麵與飯類都有',
-      desc: '不只可以吃到經典義大利麵，也有飯類和小點，選擇更完整。',
-    },
-    {
-      title: '巷弄裡的舒服小店',
-      desc: '店面溫馨簡單，很適合朋友聚餐或下班後來吃一餐。',
-    },
-  ];
+  const MenuSection = ({ title, subtitle, items }) => (
+    <section className="rounded-[28px] border border-[#eadccf] bg-white/90 p-6 shadow-sm md:p-8">
+      <div className="mb-6 flex items-center justify-between gap-4">
+        <div>
+          <h3 className="text-2xl font-extrabold text-[#5a4334]">{title}</h3>
+          {subtitle && <p className="mt-2 text-sm text-[#8b6f5a]">{subtitle}</p>}
+        </div>
+        <span className="rounded-full bg-[#fff0e7] px-4 py-2 text-sm font-semibold text-[#c7744d]">
+          MENU
+        </span>
+      </div>
+
+      <div className="grid gap-3">
+        {items.map((item) => (
+          <div
+            key={item.name}
+            className="flex items-center justify-between rounded-2xl bg-[#fffaf6] px-4 py-3 transition hover:scale-[1.01]"
+          >
+            <p className="pr-4 text-[15px] font-medium leading-6 text-[#5b473a]">
+              {item.name}
+            </p>
+            <span className="shrink-0 rounded-full bg-[#ffe4d5] px-3 py-1 text-sm font-bold text-[#b85e36]">
+              {item.price}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 
   return (
-    <main className="min-h-screen bg-[#f8f5ef] text-[#3d3128]">
+    <main className="min-h-screen bg-[#fff8f2] text-[#5a4334]">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-[#e7ded2] bg-gradient-to-b from-[#f4ede3] to-[#f8f5ef]">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
-          <div className="max-w-3xl">
-            <p className="mb-3 inline-block rounded-full bg-[#d96c4f]/10 px-4 py-1 text-sm font-medium text-[#b65237]">
-              Yummy Kitchenette ・ 信義區巷弄餐館
-            </p>
+      <section className="relative overflow-hidden border-b border-[#f0dfd2] bg-gradient-to-b from-[#fff4eb] via-[#fff8f2] to-[#fffaf6]">
+        <div className="absolute left-[-80px] top-[-60px] h-52 w-52 rounded-full bg-[#ffd9c7]/50 blur-3xl" />
+        <div className="absolute bottom-[-70px] right-[-60px] h-56 w-56 rounded-full bg-[#ffe9d8]/70 blur-3xl" />
 
-            <h1 className="text-4xl font-bold leading-tight md:text-6xl">
-              亞米小廚
-              <br />
-              <span className="text-[#b65237]">Yummy Kitchenette</span>
-            </h1>
+        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <p className="mb-4 inline-block rounded-full bg-[#ffe7da] px-4 py-2 text-sm font-semibold text-[#c46d45]">
+                ✨ 可愛溫馨版餐廳網站提案
+              </p>
 
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[#5b4b3f] md:text-lg">
-              在信義區巷弄裡，用平實價格提供讓人想再回訪的義大利麵、飯類與小點。
-              不需要太正式，也能好好吃一餐。
-            </p>
+              <h1 className="text-4xl font-extrabold leading-tight text-[#4f3a2f] md:text-6xl">
+                亞米小廚
+                <br />
+                <span className="text-[#c86f47]">Yummy Kitchenette</span>
+              </h1>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="tel:0227652332"
-                className="rounded-2xl bg-[#b65237] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
-              >
-                立即來電
-              </a>
-              <a
-                href="#menu"
-                className="rounded-2xl border border-[#ccb8a5] bg-white px-6 py-3 text-sm font-semibold text-[#4a3d33] transition hover:bg-[#f6f0e8]"
-              >
-                查看人氣餐點
-              </a>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-[#7a6150] md:text-lg">
+                在信義區巷弄裡，提供讓人感到舒服的義大利麵、燉飯、點心與飲品。
+                這版網站改成更可愛、更溫暖，適合拿去給店家看，也適合日後直接上線使用。
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="tel:0227652332"
+                  className="rounded-full bg-[#c86f47] px-6 py-3 text-sm font-bold text-white shadow-md transition hover:scale-[1.03]"
+                >
+                  立即來電
+                </a>
+                <a
+                  href="#menu"
+                  className="rounded-full border border-[#edcdb8] bg-white px-6 py-3 text-sm font-bold text-[#6a4f3f] transition hover:bg-[#fff3eb]"
+                >
+                  查看菜單
+                </a>
+              </div>
+
+              <div className="mt-8 space-y-2 text-sm leading-7 text-[#7d6556]">
+                <p>📍 台北市信義區永吉路30巷101弄16號</p>
+                <p>📞 02-2765-2332</p>
+                <p>🍚 加飯 +10 ／ 加麵 +20</p>
+                <p>🌶️ 餐點如需加辣，點餐時可先告知</p>
+              </div>
             </div>
 
-            <div className="mt-8 text-sm leading-7 text-[#6a584b]">
-              <p>地址｜台北市信義區永吉路30巷101弄16號</p>
-              <p>電話｜(02) 2765-2332</p>
-              <p>營業時間｜建議來店前先電話確認最新時段</p>
+            <div className="rounded-[32px] border border-[#f1ddd0] bg-white/90 p-6 shadow-lg md:p-8">
+              <div className="mb-5 flex items-center justify-between">
+                <h2 className="text-2xl font-extrabold text-[#5a4334]">今日店鋪資訊</h2>
+                <span className="rounded-full bg-[#fff0e7] px-3 py-1 text-xs font-bold text-[#c7744d]">
+                  OPEN INFO
+                </span>
+              </div>
+
+              <div className="space-y-3">
+                {businessHours.map((item) => (
+                  <div
+                    key={item.day}
+                    className={`flex items-center justify-between rounded-2xl px-4 py-3 ${
+                      item.open ? 'bg-[#fff8f3]' : 'bg-[#f7f1ed]'
+                    }`}
+                  >
+                    <span className="font-semibold">{item.day}</span>
+                    <span
+                      className={`text-sm font-medium ${
+                        item.open ? 'text-[#7a6150]' : 'text-[#b07d67]'
+                      }`}
+                    >
+                      {item.time}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 rounded-2xl bg-[#fff1e7] p-4 text-sm leading-7 text-[#7a6150]">
+                <p className="font-semibold text-[#b45f39]">小提醒</p>
+                <p>內用每人低消 100 元（不得合併計算）。</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Highlights */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:px-10">
-        <div className="mb-10">
-          <p className="text-sm font-semibold tracking-[0.2em] text-[#b65237]">
-            WHY PEOPLE LIKE IT
-          </p>
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">這家店適合怎麼呈現</h2>
-          <p className="mt-4 max-w-2xl leading-8 text-[#5e5146]">
-            亞米小廚的魅力不是昂貴，而是「舒服、實在、好入口」。
-            所以網站也不走浮誇路線，而是用簡潔設計把餐點與店家氛圍呈現出來。
-          </p>
+      {/* Features */}
+      <section className="mx-auto max-w-6xl px-6 py-14 md:px-10">
+        <div className="mb-8">
+          <p className="text-sm font-bold tracking-[0.18em] text-[#ca7750]">WHY THIS VERSION</p>
+          <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">這版網站的設計方向</h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {highlights.map((item) => (
+          {features.map((item) => (
             <div
               key={item.title}
-              className="rounded-3xl border border-[#eadfce] bg-white p-6 shadow-sm"
+              className="rounded-[28px] border border-[#ecdccf] bg-white p-6 shadow-sm"
             >
-              <h3 className="text-xl font-semibold">{item.title}</h3>
-              <p className="mt-3 leading-7 text-[#65574c]">{item.desc}</p>
+              <div className="text-3xl">{item.icon}</div>
+              <h3 className="mt-4 text-xl font-bold text-[#5a4334]">{item.title}</h3>
+              <p className="mt-3 leading-7 text-[#7a6454]">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Menu */}
-      <section id="menu" className="border-y border-[#e7ded2] bg-[#fcfaf6]">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10">
-          <div className="mb-10">
-            <p className="text-sm font-semibold tracking-[0.2em] text-[#b65237]">
-              POPULAR PICKS
-            </p>
-            <h2 className="mt-3 text-3xl font-bold md:text-4xl">人氣餐點示意</h2>
-            <p className="mt-4 max-w-2xl leading-8 text-[#5e5146]">
-              這裡先用網站展示版的方式放上代表性品項。
-              之後你可以再把店家的正式菜單名稱、價格、照片全部換成最新版。
+      {/* Menu intro */}
+      <section id="menu" className="border-y border-[#f0dfd2] bg-[#fffdfb]">
+        <div className="mx-auto max-w-6xl px-6 py-14 md:px-10">
+          <div className="mb-10 text-center">
+            <p className="text-sm font-bold tracking-[0.18em] text-[#ca7750]">OUR MENU</p>
+            <h2 className="mt-3 text-3xl font-extrabold md:text-4xl">菜單精選</h2>
+            <p className="mx-auto mt-4 max-w-2xl leading-8 text-[#7a6454]">
+              我把你提供的菜單內容整理成網站版面，讓客人不用看整張紙本菜單，
+              也能快速找到想吃的分類。
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {menuItems.map((item) => (
-              <div
-                key={item.name}
-                className="rounded-3xl border border-[#eadfce] bg-white p-6 shadow-sm transition hover:-translate-y-1"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-xl font-semibold">{item.name}</h3>
-                  <span className="rounded-full bg-[#eef3ea] px-3 py-1 text-sm font-bold text-[#556b4f]">
-                    {item.price}
-                  </span>
-                </div>
-                <p className="mt-4 leading-7 text-[#65574c]">{item.desc}</p>
-              </div>
-            ))}
+          <div className="mb-8 grid gap-4 md:grid-cols-3">
+            <div className="rounded-3xl bg-[#fff1e7] p-5 text-center shadow-sm">
+              <p className="text-sm font-semibold text-[#b5623d]">加點提醒</p>
+              <p className="mt-2 text-lg font-bold">加飯 +10 / 加麵 +20</p>
+            </div>
+            <div className="rounded-3xl bg-[#fff7ee] p-5 text-center shadow-sm">
+              <p className="text-sm font-semibold text-[#b5623d]">套餐 A</p>
+              <p className="mt-2 text-lg font-bold">+70</p>
+              <p className="mt-2 text-sm text-[#7a6454]">35元飲料 + 50元點心 或 35元飲料 + 玉米濃湯</p>
+            </div>
+            <div className="rounded-3xl bg-[#fff1e7] p-5 text-center shadow-sm">
+              <p className="text-sm font-semibold text-[#b5623d]">套餐 B</p>
+              <p className="mt-2 text-lg font-bold">+110</p>
+              <p className="mt-2 text-sm text-[#7a6454]">35元飲料 + 50元點心 + 玉米濃湯</p>
+            </div>
+          </div>
+
+          <div className="grid gap-8">
+            <MenuSection
+              title="義大利麵"
+              subtitle="經典奶油、青醬、茄汁、蒜辣、白酒與素食口味"
+              items={spaghettiItems}
+            />
+
+            <div className="grid gap-8 md:grid-cols-2">
+              <MenuSection
+                title="筆管麵"
+                subtitle="適合喜歡更有口感的麵體"
+                items={penneItems}
+              />
+              <MenuSection
+                title="燉飯"
+                subtitle="奶油、青醬、茄汁、蒜香與主廚特餐"
+                items={riceItems}
+              />
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-3">
+              <MenuSection title="點心" subtitle="適合搭配主餐一起分享" items={snackItems} />
+              <MenuSection title="飲料" subtitle="紙本菜單飲料折 10 元" items={drinkItems} />
+              <MenuSection title="湯品" subtitle="暖暖的搭配選擇" items={soupItems} />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* About / Info */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:px-10">
-        <div className="grid gap-10 md:grid-cols-2">
-          <div className="rounded-3xl border border-[#eadfce] bg-white p-8 shadow-sm">
-            <p className="text-sm font-semibold tracking-[0.2em] text-[#b65237]">
-              STORE INFO
-            </p>
-            <h2 className="mt-3 text-3xl font-bold">店家資訊</h2>
+      {/* Store info */}
+      <section className="mx-auto max-w-6xl px-6 py-14 md:px-10">
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="rounded-[30px] border border-[#ecdccf] bg-white p-8 shadow-sm">
+            <p className="text-sm font-bold tracking-[0.18em] text-[#ca7750]">STORE INFO</p>
+            <h2 className="mt-3 text-3xl font-extrabold">店家資訊</h2>
 
-            <div className="mt-6 space-y-4 text-[15px] leading-8 text-[#5d5045]">
-              <p><span className="font-semibold text-[#3d3128]">店名：</span>亞米小廚 Yummy Kitchenette</p>
-              <p><span className="font-semibold text-[#3d3128]">地址：</span>台北市信義區永吉路30巷101弄16號</p>
-              <p><span className="font-semibold text-[#3d3128]">電話：</span>(02) 2765-2332</p>
-              <p><span className="font-semibold text-[#3d3128]">類型：</span>義大利麵、飯類、小點、飲品</p>
-              <p><span className="font-semibold text-[#3d3128]">提醒：</span>營業時間與菜單內容可能調整，建議先來電確認。</p>
+            <div className="mt-6 space-y-4 text-[15px] leading-8 text-[#755f51]">
+              <p><span className="font-bold text-[#5a4334]">店名：</span>亞米小廚 Yummy Kitchenette</p>
+              <p><span className="font-bold text-[#5a4334]">地址：</span>台北市信義區永吉路30巷101弄16號</p>
+              <p><span className="font-bold text-[#5a4334]">電話：</span>02-2765-2332</p>
+              <p><span className="font-bold text-[#5a4334]">營業日：</span>星期日～星期四</p>
+              <p><span className="font-bold text-[#5a4334]">公休日：</span>星期五、星期六</p>
+              <p><span className="font-bold text-[#5a4334]">低消：</span>內用每人低消 100 元（不得合併計算）</p>
             </div>
           </div>
 
-          <div className="rounded-3xl bg-[#b65237] p-8 text-white shadow-sm">
-            <p className="text-sm font-semibold tracking-[0.2em] text-white/80">
-              BRAND MESSAGE
-            </p>
-            <h2 className="mt-3 text-3xl font-bold">適合店家看的提案方向</h2>
+          <div className="rounded-[30px] bg-[#c86f47] p-8 text-white shadow-lg">
+            <p className="text-sm font-bold tracking-[0.18em] text-white/80">BRAND FEEL</p>
+            <h2 className="mt-3 text-3xl font-extrabold">可愛溫馨版的氣質</h2>
+
             <p className="mt-6 leading-8 text-white/90">
-              這個網站不是做成大型連鎖餐廳那種很距離感的風格，
-              而是強調「巷弄好店」、「平價好吃」、「容易讓人記住」。
-              對店家來說，這種網站很適合拿來放在 Google 商家、IG 個人簡介，
-              或讓客人快速看到地址、電話、招牌餐點與整體感覺。
+              這一版不像高級餐廳那麼正式，而是把亞米小廚做成
+              「讓人想走進去坐下吃飯」的感覺。
+              用比較柔和的顏色、圓角設計和乾淨的排版，
+              會很適合這種巷弄裡的舒服小店。
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="tel:0227652332"
-                className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-[#b65237]"
+                className="rounded-full bg-white px-5 py-3 text-sm font-bold text-[#c86f47]"
               >
                 撥打電話
               </a>
               <a
                 href="https://maps.google.com/?q=台北市信義區永吉路30巷101弄16號"
-                className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white"
+                className="rounded-full border border-white/30 px-5 py-3 text-sm font-bold text-white"
               >
                 查看地圖
               </a>
@@ -200,11 +349,11 @@ export default function Page() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-[#e7ded2] bg-[#f3ece2]">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-[#6b5a4d] md:px-10">
-          <p className="font-semibold text-[#3d3128]">亞米小廚 Yummy Kitchenette</p>
-          <p>台北市信義區永吉路30巷101弄16號 ｜ (02) 2765-2332</p>
-          <p>Website concept design for restaurant presentation.</p>
+      <footer className="border-t border-[#f0dfd2] bg-[#fff3eb]">
+        <div className="mx-auto max-w-6xl px-6 py-8 text-sm text-[#7a6454] md:px-10">
+          <p className="font-bold text-[#5a4334]">亞米小廚 Yummy Kitchenette</p>
+          <p className="mt-2">台北市信義區永吉路30巷101弄16號 ｜ 02-2765-2332</p>
+          <p className="mt-2">Cute & warm restaurant website concept.</p>
         </div>
       </footer>
     </main>
