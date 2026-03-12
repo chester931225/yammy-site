@@ -108,7 +108,7 @@ export default function Page() {
     },
   ];
 
-  const MenuSection = ({ title, subtitle, items }) => (
+  const MenuSection = ({ title, subtitle, items }:any) => (
     <section className="rounded-[28px] border border-[#eadccf] bg-white/90 p-6 shadow-sm md:p-8">
       <div className="mb-6 flex items-center justify-between gap-4">
         <div>
@@ -121,7 +121,7 @@ export default function Page() {
       </div>
 
       <div className="grid gap-3">
-        {items.map((item) => (
+        {items.map((item: { name: string; price: string }) => (
           <div
             key={item.name}
             className="flex items-center justify-between rounded-2xl bg-[#fffaf6] px-4 py-3 transition hover:scale-[1.01]"
